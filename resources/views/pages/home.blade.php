@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 	
-<div class="home-container">
+<div class="container text-center col-md-12 home-container">
 
 	<div class="row wrapper">
 
@@ -13,7 +13,7 @@
 				<input type="text" name="email" placeholder="email">
 				<input type="text" name="password" placeholder="password">
 			</div>
-		<button class="btn btn-success" type="submit" name="login">Log In</button>
+		<button class="btn btn-success btn-home-page" type="submit" name="login">Log In</button>
 		</form>	
 	</div>
 	<div class="col-md-2">
@@ -30,7 +30,7 @@
 				<input type="password" name="password" placeholder="password">
 				<input type="password" name="confirmed_password" placeholder="confirm password">
 			</div>
-		<button class="btn btn-primary" type="submit" name="register">Register</button>
+		<button class="btn btn-primary btn-home-page" type="submit" name="register">Register</button>
 		</form>
 	</div>
 </div>

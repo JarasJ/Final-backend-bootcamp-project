@@ -1,15 +1,14 @@
+* {
+	font-family: 'Lato', sans-serif;
+}
+
 body {
 	height: 100vh;
-	font-family: "Lato", sans-serif;
-	background: url("../img/barber.jpg") no-repeat center center fixed;
-	background-size: cover;
+	font-family: 'Lato', sans-serif;
 }
 
-h1 {
-	margin-top: 20px;
-	margin-bottom: 150px;
 
-}
+
 
 form {
 	margin-top: 20px;
@@ -29,12 +28,16 @@ input {
 
 .home-container {
 	height: 100vh;
+	width: 100%;
+	background: url("../img/barber.jpg") no-repeat center center fixed;
+	background-size: cover;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 0px;
 }
 
-.btn {
+.btn-home-page {
 	height: 50px;
 	width: 150px;
 	font-size: 20px;
@@ -43,7 +46,7 @@ input {
 
 .wrapper {
 	width: 70%;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid lightgrey;
 	border-radius: 5px;
 	padding: 30px;
@@ -52,4 +55,17 @@ input {
 	align-items: center;
 	justify-content: center;
 	
+}
+
+.main-body {
+	height: 100vh;
+	background-color: #D6EAF8;
+}
+
+.footer {
+	height: 50px;
+	width: 100%;
+	background-color: #2E4053;
+	position: absolute;
+	bottom: 0;
 }
