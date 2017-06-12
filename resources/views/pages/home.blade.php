@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
-
-</head>
-<body>
+@extends('master')
+@section('content')
 	
-<div class="container text-center col-md-12 home-container">
+<div class="home-container">
 
 	<div class="row wrapper">
 
@@ -44,5 +36,5 @@
 </div>
 </div>
 
-</body>
-</html>
+@endsection
+
