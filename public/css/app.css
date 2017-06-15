@@ -17,9 +17,9 @@ form {
 }
 
 input {
-	height: 50px;
-	width: 70%;
-	font-size: 20px;
+	height: 34px;
+	width: 80%;
+	font-size: 14px;
 	border-radius: 5px;
 	border:1px solid lightgrey;
 	padding: 5px;
@@ -38,16 +38,15 @@ input {
 }
 
 .btn-home-page {
-	height: 50px;
-	width: 150px;
-	font-size: 20px;
+	width: 80%;
+	font-size: 18px;
 	margin: 10px;
 }
 
 .wrapper {
 	width: 70%;
-	background-color: rgba(255, 255, 255, 0.1);
-	border: 1px solid lightgrey;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: none;
 	border-radius: 5px;
 	padding: 30px;
 	margin: auto;
