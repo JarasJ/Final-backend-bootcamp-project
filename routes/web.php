@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get("/", "RegistrationController@index");
 
+// registration and login Controllers
 
-Route::get('main', 'PagesController@main');
+Route::post("/register", "RegistrationController@register");
+Route::post('/login_in', 'RegistrationController@login_in');
+
+Route::get('/main', 'RegistrationController@main');
+Route::get('/logout', "RegistrationController@logout");

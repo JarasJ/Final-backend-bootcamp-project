@@ -6,7 +6,8 @@
 
 	<div class="container">
 
-
+<!-- kzk turetu buti sitas -->
+<a href="/logout">Log out</a>
 
 		<form class="form-group row">
   			<label class="mr-sm-2" for="inlineFormCustomSelect">Barbers</label>
