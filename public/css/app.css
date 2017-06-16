@@ -7,9 +7,6 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
-
-
-
 form {
 	margin-top: 20px;
 	display: inline;
@@ -43,6 +40,8 @@ input {
 	margin: 10px;
 }
 
+
+
 .wrapper {
 	width: 70%;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -56,15 +55,68 @@ input {
 	
 }
 
-.main-body {
-	height: 100vh;
-	background-color: #D6EAF8;
+.main-container {
+	display: flex;
+	height: 100%;
+	padding: 0;
+}
+
+
+.nav {
+  background: #B7BEC9;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.nav-header {
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-between;
+	padding: 10px;
+
+}
+
+
+
+
+.booking-title {
+	flex: auto;
+}
+
+.services {
+	flex: auto;
+	padding: 10px;
+
+}
+
+.checkbox-inline {
+	width: 100%;
+
+}
+
+
+.team {
+	display: inline-flex;
+	padding: 10px;
+}
+
+.main {
+  background: aliceblue;
+  display: flex;
 }
 
 .footer {
 	height: 50px;
 	width: 100%;
-	background-color: #2E4053;
+	background-color: #4D5058;
+	color: #FEFCFA;
 	position: absolute;
 	bottom: 0;
 }
+
+
+

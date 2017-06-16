@@ -15,7 +15,7 @@
 				<input type="password" name="password" placeholder="password" required>
 			</div>
 			<!-- button neveikia su query uzklausom laravelyje -->
-			<input type="submit" name="register" value="Register">
+			<input class="btn btn-success" type="submit" name="register" value="Log In">
 		</form>
 	</div>
 	<div class="col-md-2">
@@ -37,7 +37,7 @@
 				<input type="password" name="confirmed_password" placeholder="confirm password">
 			</div>
 			<!-- button neveikia su query uzklausom laravelyje -->
-		<input type="submit" name="register" value="Register">
+		<input class="btn btn-primary" type="submit" name="register" value="Register">
 		</form>
 
 		<!-- meta error jei validatione yra klaida -->
