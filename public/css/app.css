@@ -17,6 +17,8 @@ input {
 	height: 34px;
 	width: 80%;
 	font-size: 14px;
+	/*height: 35px;
+	width: 70%;*/
 	border-radius: 5px;
 	border:1px solid lightgrey;
 	padding: 5px;
@@ -62,18 +64,18 @@ input {
 }
 
 
-.nav {
+.custom-nav {
   background: #B7BEC9;
   width: 20%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  align-items: stretch;
+  /*justify-content: space-between;*/
+
+  
 }
 
 .nav-header {
-	width: 100%;
 	display: inline-flex;
 	justify-content: space-between;
 	padding: 10px;
@@ -82,19 +84,16 @@ input {
 
 
 
-
-.booking-title {
-	flex: auto;
-}
-
 .services {
-	flex: auto;
 	padding: 10px;
+	display: block;
+	width: 100%;
 
 }
 
 .checkbox-inline {
 	width: 100%;
+	display:inline-block;
 
 }
 
@@ -104,10 +103,37 @@ input {
 	padding: 10px;
 }
 
+.team select {
+	margin-left: 10px;
+	height: 34px;
+}
+
 .main {
   background: aliceblue;
   display: flex;
+  width: 80%;
 }
+
+.bookings {
+	width: 100%;
+	display: block;
+	height: 50%;
+	padding: 10px; 
+}
+
+.bookings h5 {
+	margin-bottom: 20px;
+}
+
+.table {
+	margin-top-bottom: 30px;
+}
+
+.table th {
+	text-align: center;
+}
+
+
 
 .footer {
 	height: 50px;
@@ -117,6 +143,8 @@ input {
 	position: absolute;
 	bottom: 0;
 }
+
+
 
 
 
