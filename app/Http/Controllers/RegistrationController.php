@@ -85,28 +85,4 @@
     }
   }
 
-  public function adminVal(Request $request) {
-    // $userId = \Auth::id();
-    // $user = \Registration::find($userId);
-    //
-    // if($user->admin == 1)
-    // {
-    //     return \Redirect::to('/admin');
-    // }
-      // return \Redirect::to('/main');
-
-      $id = \Auth::id();
-      // $id = Auth::user(); fetchins viska is userio
-      $usr = User::find($id);
-      if($usr->admin == 1) {
-        return \Redirect::to('/admin');
-      } else {
-        return \Redirect::to('/main');
-      }
-
-    }
-
-    public function admin() {
-      return view('pages.admin');
-    }
 }
