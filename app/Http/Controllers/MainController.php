@@ -6,10 +6,12 @@
   use App\Registration;
   use Illuminate\Foundation\Auth\AuthenticatesUsers;
   use App\Admin;
-
+  use App\AddMaster;
+  use Carbon\Carbon;
+  use App\Booking;
   use App\User;
 
-  class RegistrationController extends Controller
+  class MainController extends Controller
   {
     public function __construct() {
     //  $this->middleware('guest', ['except' => 'logout']);
@@ -22,9 +24,13 @@
   }
 
   public function main() {
-    if (\Auth::check()) {
-      $services = Admin::all();
-      return view('pages.main', compact('services'));
+      if (\Auth::check()) {
+        $masters = AddMaster::all();
+        $bookings = Booking::all();
+        $today = Carbon::now()->format('Y-m-d H:i:s');
+        $user = User::find(\Auth::id());
+        $services = Admin::all();
+        return view('pages.main', compact('services', 'user', 'masters', 'today', 'bookings'));
     } else {
       return \Redirect::to('/');
     };

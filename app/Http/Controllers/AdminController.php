@@ -5,21 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
+use App\AddMaster;
 
 class AdminController extends Controller
 {
-  public function adminVal(Request $request) {
-
-      $id = \Auth::id();
-      // $id = Auth::user(); fetchins viska is userio
-      $usr = User::find($id);
-      if($usr->admin == 1) {
-        return \Redirect::to('/admin');
-      } else {
-        return \Redirect::to('/main');
-      }
-
-    }
 
     public function admin() {
       $id = \Auth::id();
@@ -27,7 +16,7 @@ class AdminController extends Controller
       if($usr->admin == 1) {
           return view('pages.admin');
       } else {
-        return view('pages.admin');
+        return \Redirect::to('/main');
       }
     }
 
@@ -43,8 +32,26 @@ class AdminController extends Controller
 
         $add ->save();
 
-        return \Redirect::to('/main');
+        return \Redirect::to('/admin');
 
-    }
-  }
+       }
+     }
+
+     public function addmasters(Request $request) {
+       if (isset($request ->submit)) {
+         $add = new AddMaster();
+
+         $firstname = $request->firstname;
+         $lastname = $request->lastname;
+
+         $add ->firstname = $firstname;
+         $add ->lastname = $lastname;
+
+         $add ->save();
+
+         return \Redirect::to('/admin');
+       }
+
+
+     }
 }

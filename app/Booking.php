@@ -4,13 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Admin1 extends Model
+class Booking extends Model
 {
   protected $connection = 'mysql'; // def value: mysql
   protected $primaryKey = 'id';
-  protected $table = 'Choices';
+  protected $table = 'bookings';
   protected $fillable = [
-  'service',
-  'price',
-  ];
+  'specialist',
+  'procedure',
+  'time',
+  'user_id',
+];
 }

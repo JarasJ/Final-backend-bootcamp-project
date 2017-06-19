@@ -10,19 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get("/", "RegistrationController@index");
+//Index route
+Route::get("/", "MainController@index");
 
 // registration and login Controllers
+Route::post("/register", "MainController@register");
+Route::post('/login_in', 'MainController@login_in');
 
-Route::post("/register", "RegistrationController@register");
-Route::post('/login_in', 'RegistrationController@login_in');
+//Booking post routes
+Route::post('/addbooking', 'BookingController@booking');
 
-Route::post('/addservice', "AdminController@add");
+//Main get routes
+Route::get('/main', 'MainController@main');
+Route::get('/logout', "MainController@logout");
 
-
-Route::get('/main', 'RegistrationController@main');
-Route::get('/logout', "RegistrationController@logout");
-
-Route::get('/admin/validate', 'AdminController@adminVal');
+//Admin get routes
 Route::get('/admin', 'AdminController@admin');
+
+//Admin post routes
+Route::post('/addservice', "AdminController@add");
+Route::post('/addmasters', 'AdminController@addmasters');
