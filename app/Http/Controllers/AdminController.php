@@ -22,7 +22,13 @@ class AdminController extends Controller
     }
 
     public function admin() {
-      return view('pages.admin');
+      $id = \Auth::id();
+      $usr = User::find($id);
+      if($usr->admin == 1) {
+          return view('pages.admin');
+      } else {
+        return view('pages.admin');
+      }
     }
 
     public function add(Request $request) {
