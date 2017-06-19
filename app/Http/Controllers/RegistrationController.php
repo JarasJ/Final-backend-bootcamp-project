@@ -5,6 +5,7 @@
   use Illuminate\Http\Request;
   use App\Registration;
   use Illuminate\Foundation\Auth\AuthenticatesUsers;
+  use App\Admin;
 
   use App\User;
 
@@ -22,7 +23,8 @@
 
   public function main() {
     if (\Auth::check()) {
-      return view('pages.main');
+      $services = Admin::all();
+      return view('pages.main', compact('services'));
     } else {
       return \Redirect::to('/');
     };

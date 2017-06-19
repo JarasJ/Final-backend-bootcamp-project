@@ -26,24 +26,11 @@
   <a href="/admin/validate"><h5 class="booking-title">Choose Services</h5></a>
 
   <form>
+		@foreach ($services as $service)
     <label class="checkbox-inline">
-      Kirpimas<input type="checkbox" value="">
-    </label>
-    <label class="checkbox-inline">
-      Plaukų dažymas<input type="checkbox" value="">
-    </label>
-    <label class="checkbox-inline">
-      Šventinis Šukavimas <input type="checkbox" value="">
-    </label>
-    <label class="checkbox-inline">
-      Barzdos kirpimas<input type="checkbox" value="">
-    </label>
-    <label class="checkbox-inline">
-      Manikiūras<input type="checkbox" value="">
-    </label>
-    <label class="checkbox-inline">
-      Barzdos kirpimas<input type="checkbox" value="">
-    </label>
+      {{$service->service}}<input type="checkbox" value=''>
+			<input type="hidden" name="{{$service->id}}">
+		@endforeach
   </form>
 
 
