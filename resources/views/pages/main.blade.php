@@ -1,131 +1,164 @@
 @extends('master')
 @section('content')
 
-<div class="container text-center col-md-12 main-container">
 
 
-	<div class="custom-nav">
+<div class="main-container">
 
-    <div class="nav-header">
-      <h4><strong>Hello username!</strong></h4>
-      <span><a href="/logout">Log out</a></span>
+  <header>
+    <h4><strong>Sveiki username!</strong></h4>
+    <span style="float: right;"><a href="/logout">Atsijungti <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></span>
+  </header>
+
+  <div class="body">
+
+
+	 <div class="navigation">
+
+   <form action="">
+
+      <div class="team">
+
+        <h4 class="booking-title">Pasirinkite meistrą</h4>
+
+        <select>
+          <option value="">...</option>
+          <option value="redas">Redas</option>
+          <option value="zygmas">Zygmas</option>
+          <option value="birute">Birutė</option>
+          <option value="pranas">Pranas</option>
+        </select>
+
     </div>
 
+    <div class="services">
 
-<!-- kzk turetu buti sitas -->
+      <h4 class="booking-title">Pasirinkite procedūras</h4>
 
-<div class="team">
+      <div class="service-checkbox">
+        <div class="service-checkbox-title">
+          <h5>Kirpimas</h5>
+        </div>
+        <div class="checkbox-inline">
+          <input  type="checkbox" name="" value="">
+        </div>
 
-  <h5 class="booking-title">Pasirinkite meistrą</h5>
+        <div class="service-checkbox-title">
+          <h5>Plaukų dažymas</h5>
+        </div>
+        <div class="checkbox-inline">
+          <input  type="checkbox" name="" value="">
+        </div>
 
-  <select>
-    <option value="redas">Redas</option>
-    <option value="zygmas">Zygmas</option>
-    <option value="birutė">Birutė</option>
-    <option value="pranas">Pranas</option>
-  </select>
+        <div class="service-checkbox-title">
+          <h5>Proginė šukuosena</h5>
+        </div>
+        <div class="checkbox-inline">
+          <input  type="checkbox" name="" value="">
+        </div>
 
+        <div class="service-checkbox-title">
+          <h5>Barzdos kirpimas</h5>
+        </div>
+        <div class="checkbox-inline">
+          <input  type="checkbox" name="" value="">
+        </div>
 
+        <div class="service-checkbox-title">
+          <h5>Manikiūras</h5>
+        </div>
+        <div class="checkbox-inline">
+          <input  type="checkbox" name="" value="">
+        </div>
 
-</div>
+        <div class="service-checkbox-title">
+          <h5>Pedikiūras</h5>
+        </div>
+        <div class="checkbox-inline">
+          <input  type="checkbox" name="" value="">
+        </div>
 
-<div class="services">
-  <a href="/admin/validate"><h5 class="booking-title">Pasirinkite procedūras</h5></a>
+        <div class="service-checkbox-title">
+          <h5>Makiažas</h5>
+        </div>
+        <div class="checkbox-inline">
+          <input  type="checkbox" name="" value="">
+        </div>
+      </div>
 
-  <form>
-		{{csrf_field()}}
-		@foreach ($services as $service)
+    </div> <!--end services-->
 
-    <label class="checkbox-inline">
-      {{$service->service}}<input type="checkbox" value=''>
-			<input type="hidden" name="{{$service->id}}">
-		@endforeach
-=======
-      Kirpimas<input type="checkbox" value="">
-    </label>
-    <label class="checkbox-inline">
-      Plaukų dažymas<input type="checkbox" value="">
-    </label>
-    <label class="checkbox-inline">
-      Šventinis Šukavimas <input type="checkbox" value="">
-    </label>
-  <!-- <label class="checkbox-inline"> -->
-      <!-- Barzdos kirpimas<input type="checkbox" value=""> -->
-    <!-- </label> -->
-    <!-- <label class="checkbox-inline"> -->
-      <!-- Manikiūras<input type="checkbox" value=""> -->
-    <!-- </label> -->
-    <!-- <label class="checkbox-inline"> -->
-      <!-- Barzdos kirpimas<input type="checkbox" value=""> -->
-    <!-- </label> -->
->>>>>>> f05688a5fa34fc9a4acbc0743189886cd32df61f
-  </form>
+    <div class="date-picker">
+      <h4 class="booking-title">Pasirinkite datą</h4>
+      <input type="text" id="datepicker">
 
-</div> <!--end services-->
+      <select>
+        <option value="">10:00</option>
+        <option value="">11:00</option>
+        <option value="">12:00</option>
+        <option value="">13:00</option>
+        <option value="">14:00</option>
+        <option value="">15:00</option>
+        <option value="">16:00</option>
+        <option value="">17:00</option>
+        <option value="">18:00</option>
+        <option value="">19:00</option>
+      </select>
 
+    </div>
 
+    <div class="submit-btn">
 
-<div class="date-picker">
-  <h5 class="booking-title">Book Date</h5>
-  <input type="text" id="datepicker">
+      <input class="btn btn-success" type="submit" name="Registruotis">
 
-</div>
+    </div>
 
+    </form>
+    
+  </div> <!-- end of .navigation -->
 
+  <div class="main">
 
+    <div class="upcoming-bookings bookings">
+    <h4>Ateinantis užsakymai</h4>
 
-</div> <!-- end of .nav -->
-
-
-
-
-
-
-
-<div class="row main">
-
-  <div class="upcoming-bookings bookings">
-    <h5>Ateinantis užsakymai</h5>
     <table class = "table table-striped">
+    <thead>
+        <tr>
+          <th>Data ir laikas</th>
+          <th>Meistras</th>
+          <th>Procedūros</th>
+          <th>Kaina</th>
+        </tr>
+    </thead>
 
+    <tbody>
+        <tr>
+          <td>2017.06.29 19:00</td>
+          <td>Redas</td>
+          <td>Plaukų kirpimas; Barzdos kirpimas</td>
+          <td>30 &euro;</td>
+        </tr>
 
-   <thead>
-      <tr>
-         <th>Data ir laikas</th>
-         <th>Meistras</th>
-         <th>Procedūros</th>
-         <th>Kaina</th>
-      </tr>
-   </thead>
+        <tr>
+          <td>2017.07.05 19:00</td>
+          <td>Redas</td>
+          <td>Plaukų kirpimas; Barzdos kirpimas</td>
+          <td>30 &euro;</td>
+        </tr>
 
-   <tbody>
-      <tr>
-         <td>2017.06.29 19:00</td>
-         <td>Redas</td>
-         <td>Plaukų kirpimas; Barzdos kirpimas</td>
-         <td>30 &euro;</td>
-      </tr>
-
-      <tr>
-         <td>2017.07.05 19:00</td>
-         <td>Redas</td>
-         <td>Plaukų kirpimas; Barzdos kirpimas</td>
-         <td>30 &euro;</td>
-      </tr>
-
-      <tr>
-         <td>2017.07.29 18:15</td>
-         <td>Redas</td>
-         <td>Plaukų kirpimas; Barzdos kirpimas</td>
-         <td>30 &euro;</td>
-      </tr>
-   </tbody>
-
-</table>
+        <tr>
+          <td>2017.07.29 18:15</td>
+          <td>Redas</td>
+          <td>Plaukų kirpimas; Barzdos kirpimas</td>
+          <td>30 &euro;</td>
+        </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="previous-bookings bookings">
-    <h5>Buvę užsakymai</h5>
+    <h4>Buvę užsakymai</h4>
 
         <table class = "table table-striped">
 
@@ -162,21 +195,19 @@
    </tbody>
 
 </table>
+  </div> 
+
+  </div><!--end main-->
+
   </div>
-
-
-</div><!--end main-->
-
-
-<a href="/admin/validate"><p>Admin</p></a>
-
-
-  </div><!--end of .container-->
-
 
   <footer class="footer">
     <p class="text-center">All rights reserved &copy 2017</p>
   </footer>
+</div>
+
+<!-- <a href="/admin/validate"><p>Admin</p></a> -->
+
 
   <script>
 
