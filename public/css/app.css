@@ -89,9 +89,9 @@ header a:hover {
 .navigation {
 	display: flex;
 	justify-content: space-between;
-  background: #816F90;
-  width: 20%;
-  height: auto;
+	background: #816F90;
+	width: 20%;
+	height: auto;
  
 }
 
@@ -151,7 +151,7 @@ header a:hover {
 }
 
 .date-picker select {
-	width: 29%;
+	width: 25%;
 	border-radius: 5px;
 }
 
@@ -202,7 +202,14 @@ table th {
 	width: 50%;
 }
 
+.admin-navigation {
+	display: flex;
+	flex-direction: column;
+	background: #816F90;
+	width: 20%;
+	height: auto;
 
+}
 
 
 

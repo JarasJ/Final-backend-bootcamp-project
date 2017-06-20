@@ -9,50 +9,33 @@
   <div class="body">
 
 
-	 <div class="navigation">
+	 <div class="admin-navigation">
 
-   <form class="main-form" action="/addbooking" method="post">
-		 {{csrf_field()}}
       <div class="team">
 
-        <h4 class="booking-title">Pridėkite darbuotoją</h4>
+        <h4 class="booking-title">Pridėkite darbuotojus</h4>
 
-        <br>
+        <form action='/addmasters' method='post'>
+          {{csrf_field()}}
+          <h5>Darbuotojo vardas: <h5><input type='text' name='firstname' required>
+          <h5>Darbuotojo pavardė: <h5><input type='text' name='lastname' required>
+          <input class="btn btn-success" type='submit' name='submit' value="Pridėti">
+        </form>
 
-        <div>
+      </div>
 
-<form action='/addmasters' method='post'>
-  {{csrf_field()}}
-  <h5>Darbuotojo vardas: <h5><input type='text' name='firstname' required>
-  <h5>Darbuotojo pavardė: <h5><input type='text' name='lastname' required>
-  <input class="btn btn-succes" type='submit' name='submit' value="Add master">
-</form>
+      <div class="services">
 
-        </div>
+       <h4 class="booking-title">Pridėkite procedūras</h4>
 
-    </div>
+       <form action="/addservice" method="post">
+          {{csrf_field()}}
+          <h5>Paslauga: </h5><input type="text" name="service" required> <br/>
+          <h5>Kaina: </h5> <input type="text" name="price" required>
+          <input class="btn btn-success" type="submit" name="add" value="Pridėti">
+        </form>
 
-<div class="services">
-
-      <h4 class="booking-title">Pasirinkite procedūras</h4>
-
-      <form action="/addservice" method="post">
-  {{csrf_field()}}
-  Service: <input type="text" name="service" required> <br/>
-  Price: <input type="text" name="price" required>
-  <input type="submit" name="add" value="add">
-</form>
-
-
-
-    </div> <!--end services-->
-
-
-
-
-
-<br/>
-<br/>
+      </div> <!--end services-->
 
  </div> <!-- end of .navigation -->
 
@@ -121,11 +104,48 @@
           @endforeach
         </table>
     </div>
-    <div role="tabpanel" class="tab-pane" id="messages">...</div>
-    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+            <table class="table table-striped">
+              <thead>
+                 <tr>
+                    <th>Vardas</th>
+                    <th>Pavarde</th>
+                    <th>Paskutinio vizito data</th>
+                    <th>Procedūros</th>
+                    <th>Kaina</th>
+                 </tr>
+              </thead>
+               <tbody>
+                  <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td> &euro;</td>
+                  </tr>
+               </tbody>
+            </table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="settings">
+                  <table class="table table-striped">
+              <thead>
+                 <tr>
+                    <th>Vardas</th>
+                    <th>Pavarde</th>
+                    <th>Dirba nuo...</th>
+                 </tr>
+              </thead>
+               <tbody>
+                  <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+               </tbody>
+            </table>
+    </div>
   </div>
-
-</div>
+  </div>
 
 
 
