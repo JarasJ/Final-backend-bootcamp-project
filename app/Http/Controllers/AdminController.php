@@ -6,15 +6,19 @@ use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
 use App\AddMaster;
+use App\Booking;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
 
     public function admin() {
-      $id = \Auth::id();
-      $usr = User::find($id);
-      if($usr->admin == 1) {
-          return view('pages.admin');
+      $user = User::find(\Auth::id());
+      $bookings = Booking::all();
+      $services = Admin::all();
+      $today = Carbon::now()->format('Y-m-d H:i:s');
+      if($user->admin == 1) {
+          return view('pages.admin', compact('user', 'bookings', 'services', 'today'));
       } else {
         return \Redirect::to('/main');
       }
