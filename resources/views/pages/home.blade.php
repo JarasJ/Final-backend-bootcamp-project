@@ -6,7 +6,7 @@
 	<div class="row wrapper">
 
 	<div class="login col-md-5">
-		<h2>Log In</h2>
+		<h2>Prisijunkite</h2>
 		<form action="/login_in" method="post">
 			<div class="form-group">
 				{{csrf_field()}}
@@ -15,17 +15,17 @@
 				<input type="password" name="password" placeholder="password" required>
 			</div>
 			<!-- button neveikia su query uzklausom laravelyje -->
-			<input class="btn btn-success" type="submit" name="register" value="Log In">
+			<input class="btn btn-success" type="submit" name="register" value="Prisijungti">
 		</form>
 	</div>
 	<div class="col-md-2">
-		<h2>Or</h2>
+		<h2>Arba</h2>
 
 	</div>
 
 
 	<div class="register col-md-5">
-		<h2>Register</h2>
+		<h2>Registruokites</h2>
 		<form action="/register" method="post">
 			<div class="form-group">
 				{{csrf_field()}}
@@ -37,7 +37,7 @@
 				<input type="password" name="confirmed_password" placeholder="confirm password">
 			</div>
 			<!-- button neveikia su query uzklausom laravelyje -->
-		<input class="btn btn-primary" type="submit" name="register" value="Register">
+		<input class="btn btn-primary" type="submit" name="register" value="Registruotis">
 		</form>
 
 		<!-- meta error jei validatione yra klaida -->

@@ -20,9 +20,13 @@
                 <td>{{$booking ->procedure}}</td>
                 <td>30 &euro;</td>
               </tr>
-      </div>
+          </tbody>
+
         @endif
       @endforeach
+
+        </table>
+      </div>  
 
       <div class="previous-bookings bookings">
         <table class = "table table-striped">
@@ -37,8 +41,6 @@
               </thead>
           @foreach ($bookings as $booking)
             @if ($booking ->time < $today)
-
-
                <tbody>
                   <tr>
                     <td>{{$booking ->time}}</td>
