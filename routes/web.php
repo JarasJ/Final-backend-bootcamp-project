@@ -11,7 +11,7 @@
 |
 */
 //Index route
-Route::get("/", "MainController@index");
+Route::get("/", "PagesController@index");
 
 // registration and login Controllers
 Route::post("/register", "MainController@register");
@@ -21,7 +21,7 @@ Route::post('/login_in', 'MainController@login_in');
 Route::post('/addbooking', 'BookingController@booking');
 
 //Main get routes
-Route::get('/main', 'MainController@main');
+Route::get('/main', 'PagesController@main');
 Route::get('/logout', "MainController@logout");
 
 //Admin get routes

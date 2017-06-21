@@ -53,7 +53,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
     	<table class = "table table-striped">
-              
+
               <thead>
                  <tr>
                     <th>Data ir laikas</th>
@@ -64,14 +64,14 @@
                  </tr>
               </thead>
           @foreach ($bookings as $booking)
-            @if ($booking ->time < $today)
+            @if ($booking ->time >= $today)
                <tbody>
                   <tr>
                     <td>{{$booking ->time}}</td>
-                    <td>-</td>
+                    <td>{{ printIfIsset((App\Registration::where('id', $booking->user_id)->first()), 'firstname')  }}</td>
                     <td>{{$booking ->specialist}}</td>
                     <td>{{$booking ->procedure}}</td>
-                    <td>30 &euro;</td>
+                    <td>{{$booking ->price}} &euro;</td>
                   </tr>
                </tbody>
             @endif
@@ -94,10 +94,10 @@
                <tbody>
                   <tr>
                     <td>{{$booking ->time}}</td>
-                    <td>-</td>
+                    <td>{{ printIfIsset((App\Registration::where('id', $booking->user_id)->first()), 'firstname')  }}</td>
                     <td>{{$booking ->specialist}}</td>
                     <td>{{$booking ->procedure}}</td>
-                    <td>30 &euro;</td>
+                    <td>{{$booking ->price}} &euro;</td>
                   </tr>
                </tbody>
             @endif
@@ -115,16 +115,20 @@
                     <th>Kaina</th>
                  </tr>
               </thead>
-               <tbody>
-                  <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td> &euro;</td>
-                  </tr>
-               </tbody>
+              @foreach ($peoples as $people)
+                 <tbody>
+                    <tr>
+
+                        <td>{{$people ->firstname}}</td>
+                        <td>{{$people ->lastname}}</td>
+                        <td>{{printIfIsset((App\Booking::where('user_id', $people->id)->orderBy('updated_at', 'DESC')->first()), "created_at")}}</td>
+                        <td>{{printIfIsset((App\Booking::where('user_id', $people->id)->orderBy('updated_at', 'DESC')->first()), 'procedure')}}</td>
+                        <td>{{printIfIsset((App\Booking::where('user_id', $people->id)->orderBy('updated_at', 'DESC')->first()), 'price')}} &euro;</td>
+                    </tr>
+                 </tbody>
+               @endforeach
             </table>
+
     </div>
     <div role="tabpanel" class="tab-pane" id="settings">
                   <table class="table table-striped">
@@ -135,13 +139,15 @@
                     <th>Dirba nuo...</th>
                  </tr>
               </thead>
-               <tbody>
-                  <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                  </tr>
-               </tbody>
+              @foreach ($masters as $master)
+                 <tbody>
+                    <tr>
+                      <td>{{$master ->firstname}}</td>
+                      <td>{{$master->lastname}}</td>
+                      <td>{{$master ->created_at}}</td>
+                    </tr>
+                 </tbody>
+               @endforeach
             </table>
     </div>
   </div>
@@ -159,8 +165,7 @@
 </div>
 
 
-
-<a href="/main">Main page</a>
+<!-- <a href="/main">Main page</a> -->
 
 
 @endsection

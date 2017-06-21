@@ -8,22 +8,11 @@ use App\User;
 use App\AddMaster;
 use App\Booking;
 use Carbon\Carbon;
+use App\Users;
+use App\Masters;
 
 class AdminController extends Controller
 {
-
-    public function admin() {
-      $user = User::find(\Auth::id());
-      $bookings = Booking::all();
-      $services = Admin::all();
-      $today = Carbon::now()->format('Y-m-d H:i:s');
-      if($user->admin == 1) {
-          return view('pages.admin', compact('user', 'bookings', 'services', 'today'));
-      } else {
-        return \Redirect::to('/main');
-      }
-    }
-
     public function add(Request $request) {
       if (isset($request ->add)) {
         $add = new Admin();
@@ -55,7 +44,21 @@ class AdminController extends Controller
 
          return \Redirect::to('/admin');
        }
-
-
      }
+       public function admin() {
+         $user = User::find(\Auth::id());
+         $bookings = Booking::all();
+         $bookings = Booking::orderBy('time', 'ASC')->get();
+         $peoples = Users::all();
+         $services = Admin::all();
+         $today = Carbon::now()->format('Y-m-d H:i:s');
+         $masters = Masters::all();
+
+         if($user->admin == 1) {
+             return view('pages.admin', compact('user', 'bookings', 'services', 'today', 'peoples', 'masters'));
+         } else {
+           return \Redirect::to('/main');
+         }
+       }
+
 }

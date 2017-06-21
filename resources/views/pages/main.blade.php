@@ -93,7 +93,7 @@
     </ul>
   </div>
  @endif
-<a href="/admin"><p>Admin</p></a>
+<!-- <a href="/admin"><p>Admin</p></a> -->
 
   <script>
 
@@ -102,7 +102,7 @@
     $( "#datepicker" ).datepicker({dateFormat: 'yy.mm.dd', firstDay: 1}).datepicker("setDate", new Date());
 
   });
- 
+
   </script>
 
 

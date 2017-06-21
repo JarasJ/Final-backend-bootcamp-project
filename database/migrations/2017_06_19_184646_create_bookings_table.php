@@ -18,6 +18,7 @@ class CreateBookingsTable extends Migration
             $table->string('specialist');
             $table->text('procedure');
             $table->DATETIME('time');
+            $table->integer('price');
             $table->integer('user_id');
             $table->timestamps();
         });

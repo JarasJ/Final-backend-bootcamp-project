@@ -14,27 +14,6 @@
   class MainController extends Controller
   {
     public function __construct() {
-    //  $this->middleware('guest', ['except' => 'logout']);
-    //  \View::share('this');
-
-  }
-
-  public function index() {
-      return view('pages.home');
-  }
-
-  public function main() {
-      if (\Auth::check()) {
-        $masters = AddMaster::all();
-        $bookings = Booking::all();
-        $today = Carbon::now()->format('Y-m-d H:i:s');
-        $user = User::find(\Auth::id());
-        $services = Admin::all();
-        return view('pages.main', compact('services', 'user', 'masters', 'today', 'bookings'));
-    } else {
-      return \Redirect::to('/');
-    };
-
   }
 
   public function logout() {
@@ -72,9 +51,7 @@
       $registration->save();
 
       return \Redirect::to('/');
-      //$registration -> save();
     }
-      //return \Redirect::to('/');
   }
 
 
@@ -83,7 +60,12 @@
 
 
     if (\Auth::attempt(['email'=> $request->email, 'password' => $request->password],true)) {
-          return \Redirect::to('/main');
+      $user = User::find(\Auth::id());
+      if ($user->admin == 1) {
+        return \Redirect::to('/admin');
+      } else {
+        return \Redirect::to('/main');
+      }
     }
     else {
       return redirect('/')->withErrors([

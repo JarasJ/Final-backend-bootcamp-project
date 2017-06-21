@@ -11,14 +11,14 @@
               <th>Kaina</th>
             </tr>
         </thead>
-        @foreach ($bookings as $booking)
+        @foreach (App\Booking::where('user_id', $id)->orderBy('time', 'ASC')->cursor() as $booking)
           @if ($booking ->time >= $today)
           <tbody>
               <tr>
                 <td>{{$booking ->time}}</td>
                 <td>{{$booking ->specialist}}</td>
                 <td>{{$booking ->procedure}}</td>
-                <td>30 &euro;</td>
+                <td>{{$booking ->price}} &euro;</td>
               </tr>
           </tbody>
 
@@ -26,7 +26,7 @@
       @endforeach
 
         </table>
-      </div>  
+      </div>
 
       <div class="previous-bookings bookings">
         <table class = "table table-striped">
@@ -39,14 +39,14 @@
                     <th>Kaina</th>
                  </tr>
               </thead>
-          @foreach ($bookings as $booking)
+          @foreach (App\Booking::where('user_id', $id)->orderBy('time', 'ASC')->cursor() as $booking)
             @if ($booking ->time < $today)
                <tbody>
                   <tr>
                     <td>{{$booking ->time}}</td>
                     <td>{{$booking ->specialist}}</td>
                     <td>{{$booking ->procedure}}</td>
-                    <td>30 &euro;</td>
+                    <td>{{$booking ->price}} &euro;</td>
                   </tr>
                </tbody>
             @endif
