@@ -69,7 +69,7 @@
     }
     else {
       return redirect('/')->withErrors([
-        'error' => 'These credentials do not match our records.',
+        'error' => 'Tokio vartotojo nėra',
     ]);
 
     }

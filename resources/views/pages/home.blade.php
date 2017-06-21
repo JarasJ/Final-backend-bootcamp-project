@@ -3,6 +3,36 @@
 
 <div class="container text-center col-md-12 home-container">
 
+		@if (count($errors) > 0)
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content alert alert-danger">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Neteisingai suvesti duomenys</h4>
+        </div>
+        <div class="modal-body alert alert-danger">
+          		<div>
+					@foreach ($errors->all() as $error)
+						<p>{{ $error }}</p>
+					@endforeach
+				</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+   @endif
+  
+
+
 	<div class="row wrapper">
 
 	<div class="login col-md-5">
@@ -11,8 +41,8 @@
 			<div class="form-group">
 				{{csrf_field()}}
 				<input type="hidden" name="action" value="register" required>
-				<input type="text" name="email" placeholder="email" required>
-				<input type="password" name="password" placeholder="password" required>
+				<input type="text" name="email" placeholder="e-paštas" required>
+				<input type="password" name="password" placeholder="slaptažodis" required>
 			</div>
 			<!-- button neveikia su query uzklausom laravelyje -->
 			<input class="btn btn-success" type="submit" name="register" value="Prisijungti">
@@ -30,29 +60,29 @@
 			<div class="form-group">
 				{{csrf_field()}}
 				<!-- <input type="hidden" name="action" value="register"> -->
-				<input type="text" name="firstname" placeholder="first name" required>
-				<input type="text" name="lastname" placeholder="last name" required>
-				<input type="text" name="email" placeholder="email" required>
-				<input type="password" name="password" placeholder="password" required>
-				<input type="password" name="confirmed_password" placeholder="confirm password">
+				<input type="text" name="firstname" placeholder="vardas" required>
+				<input type="text" name="lastname" placeholder="pavarde" required>
+				<input type="text" name="email" placeholder="e-paštas" required>
+				<input type="password" name="password" placeholder="slaptažodis" required>
+				<input type="password" name="confirmed_password" placeholder="slaptažodžio pakartojimas">
 			</div>
 			<!-- button neveikia su query uzklausom laravelyje -->
 		<input class="btn btn-primary" type="submit" name="register" value="Registruotis">
 		</form>
 
-		<!-- meta error jei validatione yra klaida -->
-		@if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<ul>
-					@foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-		 @endif
+
+
+
+
+
+		
 
 	</div>
 </div>
+
+<script>
+	$('#myModal').modal('show');
+</script>
 </div>
 
 @endsection

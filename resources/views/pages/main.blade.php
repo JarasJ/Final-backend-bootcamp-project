@@ -85,14 +85,32 @@
 
 </div>
 @if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <ul>
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Neteisingai suvesti duomenys</h4>
+        </div>
+        <div class="modal-body alert alert-danger panel-danger">
+              <div>
+          @foreach ($errors->all() as $error)
+            <p>{{ $error }}</p>
+          @endforeach
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+        </div>
+      </div>
+      
+    </div>
   </div>
- @endif
+
+   @endif
 <!-- <a href="/admin"><p>Admin</p></a> -->
 
   <script>
@@ -102,6 +120,9 @@
     $( "#datepicker" ).datepicker({dateFormat: 'yy.mm.dd', firstDay: 1}).datepicker("setDate", new Date());
 
   });
+
+
+  $('#myModal').modal('show');
 
   </script>
 

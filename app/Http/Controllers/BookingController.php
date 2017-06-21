@@ -59,7 +59,7 @@ class BookingController extends Controller
           return \Redirect::to('/main');
         } else {
           return \Redirect::to('/main')->withErrors([
-            'error' => 'This Date and Time is allready booked',
+            'error' => 'Šis laikas jau užimtas',
         ]);
         }
       }
