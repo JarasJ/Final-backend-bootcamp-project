@@ -41,10 +41,14 @@ class PagesController extends Controller
       $services = Admin::all();
       $today = Carbon::now()->format('Y-m-d H:i:s');
       $masters = Masters::all();
+      if (\Auth::check()) {
       if($user->admin == 1) {
-          return view('pages.admin', compact('user', 'bookings', 'services', 'today', 'peoples', 'masters'));
+            return view('pages.admin', compact('user', 'bookings', 'services', 'today', 'peoples', 'masters'));
+        } else {
+          return \Redirect::to('/main');
+        }
       } else {
         return \Redirect::to('/main');
-      }
     }
+  }
 }
