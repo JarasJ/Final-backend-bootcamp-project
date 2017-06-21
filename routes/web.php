@@ -25,7 +25,7 @@ Route::get('/main', 'PagesController@main');
 Route::get('/logout', "MainController@logout");
 
 //Admin get routes
-Route::get('/admin', 'AdminController@admin');
+Route::get('/admin', 'PagesController@admin');
 
 //Admin post routes
 Route::post('/addservice', "AdminController@add");

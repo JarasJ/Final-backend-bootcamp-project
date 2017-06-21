@@ -45,20 +45,4 @@ class AdminController extends Controller
          return \Redirect::to('/admin');
        }
      }
-       public function admin() {
-         $user = User::find(\Auth::id());
-         $bookings = Booking::all();
-         $bookings = Booking::orderBy('time', 'ASC')->get();
-         $peoples = Users::all();
-         $services = Admin::all();
-         $today = Carbon::now()->format('Y-m-d H:i:s');
-         $masters = Masters::all();
-
-         if($user->admin == 1) {
-             return view('pages.admin', compact('user', 'bookings', 'services', 'today', 'peoples', 'masters'));
-         } else {
-           return \Redirect::to('/main');
-         }
-       }
-
 }
